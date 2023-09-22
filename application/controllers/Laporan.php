@@ -80,7 +80,7 @@ class Laporan extends CI_Controller
                 $this->db->query("UPDATE detail_penjualan SET catatan='$note' WHERE no_trf='$no_trf'");
             }
         }
-        redirect('laporan/status/' . $no_trf);
+        redirect('laporan/');
     }
 
     function updatestatus()
