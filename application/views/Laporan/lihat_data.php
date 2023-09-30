@@ -88,7 +88,6 @@
                                 <th>Jam Transaksi</th>
                                 <th>Metode Pembayaran</th>
                                 <th>Status Transaksi</th>
-                                <th>Catatan</th>
                                 <?php if ($this->session->userdata('akses') == 1) { ?>
                                 <th style="text-align: center">&emsp; Action</th>
                                 <?php } else if ($this->session->userdata('akses') == 2) { ?>
@@ -110,9 +109,6 @@
                                 <td><?php echo $row->jam_trf; ?></td>
                                 <td><?php echo $row->metode; ?></td>
                                 <td><?php echo $row->status_transaksi; ?></td>
-                                <td>
-                                    <div id="laporan_<?php echo $row->id; ?>"></div>
-                                </td>
                                 <?php if ($this->session->userdata('akses') == 1) { ?>
                                 <td style="text-align: center">
                                     <?php echo anchor(site_url('laporan/status/' . $no_trf), '<i class="fa fa-eye"></i>&nbsp;&nbsp;Update', array('title' => 'Update', 'class' => 'btn btn-sm btn-warning'));
@@ -142,26 +138,6 @@
 </section>
 <script src="<?php echo base_url() ?>assets/app/js/alert.js"></script>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    <?php foreach ($laporan as $row) : ?>
-    var laporan_<?php echo $row->id; ?> = "<?php echo $row->catatan; ?>";
-    var jumlahKata = 3; // Ganti dengan jumlah kata yang Anda inginkan
-
-    // Fungsi untuk memotong laporan menjadi beberapa kata saja
-    function potongLaporan(laporan, jumlahKata) {
-        var kata = laporan.split(' ').slice(0, jumlahKata).join(' ');
-        if (laporan.split(' ').length > jumlahKata) {
-            kata += ' ...';
-        }
-        return kata;
-    }
-
-    // Menampilkan laporan yang sudah dipotong di dalam elemen <div> yang sesuai
-    var laporanTerpotong = potongLaporan(laporan_<?php echo $row->id; ?>, jumlahKata);
-    document.getElementById('laporan_<?php echo $row->id; ?>').textContent = laporanTerpotong;
-    <?php endforeach; ?>
-});
-
 $(document).ready(function() {
     $('.input-daterange').datepicker({
         todayBtn: 'linked',
