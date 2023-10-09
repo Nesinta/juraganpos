@@ -1,10 +1,10 @@
 <style type="text/css">
-    table,
-    th,
-    tr,
-    td {
-        text-align: center;
-    }
+table,
+th,
+tr,
+td {
+    text-align: center;
+}
 </style>
 
 <section class="content">
@@ -23,14 +23,19 @@
                         <input type="hidden" name="id" value="<?php echo $record['id_kategori'] ?>">
                         <label for="kategori" class="control-label">Nama Kategori</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" name="nama_kategori" id="nama_kategori" data-error="Nama Kategori harus diisi" placeholder="Nama Kategori" value="<?php echo $record['nama_kategori']; ?>" required />
+                            <input type="text" class="form-control" name="nama_kategori" id="nama_kategori"
+                                data-error="Nama Kategori harus diisi" placeholder="Nama Kategori"
+                                value="<?php echo $record['nama_kategori']; ?>" required />
                             <span class="input-group-addon">
                                 <span class="fa fa-cube"></span>
                             </span>
                         </div>
                         <div class="help-block with-errors"></div>
                     </div>
-                    <button type="submit" class="btn btn-info" name="submit"> simpan </button>
+                    <div class="box-footer">
+                        <button type="submit" name="submit" class="btn btn-primary ">Simpan</button>
+                        <a href="<?php echo base_url() ?>kategori" class="btn btn-default ">Cancel</a>
+                    </div>
                     </form>
                 </div>
             </div>
