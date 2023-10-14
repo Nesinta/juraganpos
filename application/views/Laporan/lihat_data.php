@@ -88,7 +88,6 @@
                                 <th>Jam Transaksi</th>
                                 <th>Metode Pembayaran</th>
                                 <th>Status Transaksi</th>
-                                <th>Catatan</th>
                                 <?php if ($this->session->userdata('akses') == 1) { ?>
                                 <th style="text-align: center">&emsp; Action</th>
                                 <?php } else if ($this->session->userdata('akses') == 2) { ?>

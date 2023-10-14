@@ -1,15 +1,15 @@
 <style type="text/css">
-    table,
-    th,
-    tr,
-    td {
-        text-align: center;
-    }
+table,
+th,
+tr,
+td {
+    text-align: center;
+}
 
-    .swal2-popup {
-        font-family: inherit;
-        font-size: 1.2rem;
-    }
+.swal2-popup {
+    font-family: inherit;
+    font-size: 1.2rem;
+}
 </style>
 <section class="content">
     <div class="row">
@@ -36,18 +36,18 @@
                             <?php
                             $no = 0;
                             foreach ($cust as $juragan) : ?>
-                                <tr>
-                                    <td><?php echo ++$no; ?></td>
-                                    <td><?php echo $juragan->nama_juragan ?></td>
+                            <tr>
+                                <td><?php echo ++$no; ?></td>
+                                <td><?php echo $juragan->nama_juragan ?></td>
 
-                                    <td>
-                                        <?php
+                                <td>
+                                    <?php
                                         echo anchor(site_url('juragan/edit/' . $juragan->id_juragan), '<i class="fa fa-pencil-square-o fa-lg"></i>&nbsp;&nbsp;Edit', array('title' => 'edit', 'class' => 'btn btn-sm btn-warning'));
                                         echo '&nbsp';
                                         echo anchor(site_url('juragan/hapus/' . $juragan->id_juragan), '<i class="fa fa-trash fa-lg"></i>&nbsp;&nbsp;Hapus', 'title="delete" class="btn btn-sm btn-danger "');
                                         ?>
-                                    </td>
-                                </tr>
+                                </td>
+                            </tr>
                             <?php endforeach ?>
                         </tbody>
                     </table>
@@ -56,27 +56,28 @@
         </div>
     </div>
 </section>
+<script src="<?php echo base_url() ?>assets/app/js/alert.js"></script>
 <script>
-    $(document).ready(function() {
+$(document).ready(function() {
 
-        var table = $('#myTable').dataTable({
-            "fnDrawCallback": function() {
-                $('.image-link').magnificPopup({
-                    type: 'image',
-                    closeOnContentClick: true,
-                    closeBtnInside: false,
-                    fixedContentPos: true,
+    var table = $('#myTable').dataTable({
+        "fnDrawCallback": function() {
+            $('.image-link').magnificPopup({
+                type: 'image',
+                closeOnContentClick: true,
+                closeBtnInside: false,
+                fixedContentPos: true,
 
-                    image: {
-                        verticalFit: true
-                    },
-                    zoom: {
-                        enabled: true,
-                        duration: 300 // don't foget to change the duration also in CSS
-                    },
+                image: {
+                    verticalFit: true
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300 // don't foget to change the duration also in CSS
+                },
 
-                });
-            }
-        });
+            });
+        }
     });
+});
 </script>
