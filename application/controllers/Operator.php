@@ -29,12 +29,14 @@ class Operator extends CI_Controller
 			$nama 		= $this->input->post('operator', true);
 			$username	= $this->input->post('username', true);
 			$password	= $this->input->post('password', true);
+			$id_juragan 	= $this->input->post('id_juragan', true);
 			$id_akses	= $this->input->post('2', true);
 			$data 		= array(
 				'nama_operator' => $nama,
 				'username' => $username,
 				'password' => md5($password),
 				'id_akses' => $id_akses,
+				'id_juragan' => $id_juragan,
 			);
 			$this->db->insert('operator', $data);
 			redirect('operator');
