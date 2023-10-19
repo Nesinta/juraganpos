@@ -46,6 +46,16 @@
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
+    <style>
+        #notif p {
+            margin-right: -175px;
+        }
+
+        #notif-head {
+            height: 70px;
+            margin-top: 4.5;
+        }
+    </style>
     <div class="wrapper">
         <header class="main-header">
             <!-- Logo -->
@@ -64,16 +74,46 @@
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <!-- User Account: style can be found in dropdown.less -->
-                        <?php $foto = $this->session->userdata['foto']; ?>
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-bell"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="user-header" id="notif-head" style="background-color:white;">
+                                    <p style=" color:black;">NOTIFIKASI! <i class="fa fa-bell"></i></p>
+                                    <hr>
+                                </li>
+                                <li class="user-body" style="width: 100px;">
+                                    <div class="row" style="text-align:left; margin-right: -200px;">
+                                        <div class="col-md-4" id="notif">
+                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime, cum?</p>
+                                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem veritatis labore omnis, nulla saepe aspernatur. Nulla doloribus amet quidem est culpa. Commodi laudantium consequatur reiciendis earum ab eos, nostrum, quos culpa facere quod, maxime dolores eius ad blanditiis dolore beatae illo quasi. Quibusdam itaque eaque fugit rerum similique dolore aut.</p>
+                                            <p>Lorem ipsum dolor sit amet.</p>
+                                            <p>Lorem ipsum dolor sit amet.</p>
+                                            <p>Lorem ipsum dolor sit amet.</p>
+                                            <p>Lorem ipsum dolor sit amet.</p>
+                                            <p>Lorem ipsum dolor sit amet.</p>
+                                            <p>Lorem ipsum dolor sit amet.</p>
+                                            <p>Lorem ipsum dolor sit amet.</p>
+                                            <p>Lorem ipsum dolor sit amet.</p>
+                                            <p>Lorem ipsum dolor sit amet.</p>
+                                            <p>Lorem ipsum dolor sit amet.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- <img src="<?php echo base_url('uploads/operator/') . $foto; ?>" class="user-image" alt="User Image"> -->
+                                <i class="fa fa-user"></i>
                                 <span class="hidden-xs">Hi!, <?php echo $this->session->userdata['nama_operator']; ?></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header" style="background-color: #222d32;">
-                                    <!-- <img src="<?php echo base_url('uploads/operator/') . $foto; ?>" class="img-circle" alt="User Image"> -->
+                                    <i id="ikon" class="fa fa-user"></i>
                                     <p>
                                         <span class="text-uppercase"><?php echo $this->session->userdata['nama_operator']; ?></span>
                                         <small><a href="#"><i class="fa fa-circle text-success"></i> Online</a></small>

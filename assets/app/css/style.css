@@ -559,3 +559,8 @@ a:focus {
 #item-list {
 	padding-top: 50px;
 }
+
+#ikon .ikon {
+	color: white;
+	width: 100px;
+}
