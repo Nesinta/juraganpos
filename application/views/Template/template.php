@@ -79,13 +79,12 @@
                                 <i class="fa fa-bell"></i>
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="user-header" id="notif-head" style="background-color:white;">
-                                    <p style=" color:black;">NOTIFIKASI! <i class="fa fa-bell"></i></p>
-                                    <hr>
+                                <li class="user-header" id="notif-head" style="background-color:white; box-shadow: 1px 2px 4px grey;">
+                                    <p style=" color:black;">NOTIFIKASI! <span style="color:#FFCC00;"><i class="fa fa-bell"></i></span></p>
                                 </li>
-                                <li class="user-body" style="width: 100px;">
-                                    <div class="row" style="text-align:left; margin-right: -200px;">
-                                        <div class="col-md-4" id="notif">
+                                <li class="user-body">
+                                    <div class="row" style="text-align:left; margin-right: -200px; overflow-y:scroll; overflow-x:hidden; height:400px;">
+                                        <div class="col-md-4" id="notif" style="width: 100px;">
                                             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime, cum?</p>
                                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem veritatis labore omnis, nulla saepe aspernatur. Nulla doloribus amet quidem est culpa. Commodi laudantium consequatur reiciendis earum ab eos, nostrum, quos culpa facere quod, maxime dolores eius ad blanditiis dolore beatae illo quasi. Quibusdam itaque eaque fugit rerum similique dolore aut.</p>
                                             <p>Lorem ipsum dolor sit amet.</p>
