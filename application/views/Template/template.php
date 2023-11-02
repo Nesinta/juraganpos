@@ -94,9 +94,10 @@
                                 <i class="fa fa-bell"><?php echo $numnof->num_rows(); ?></i>
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="user-header" id="notif-head" style="background-color:white;">
-                                    <p style=" color:black;">NOTIFIKASI! <i class="fa fa-bell"></i></p>
-                                    <hr>
+                                <li class="user-header" id="notif-head"
+                                    style="background-color:white; box-shadow: 1px 2px 4px grey;">
+                                    <p style=" color:black;">NOTIFIKASI! <span style="color:#FFCC00;"><i
+                                                class="fa fa-bell"></i></span></p>
                                 </li>
                                 <li class="user-body" style="width: 100px;">
                                     <div class="row" style="text-align:left; margin-right: -200px;">
