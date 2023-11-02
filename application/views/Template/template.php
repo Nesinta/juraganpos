@@ -26,13 +26,16 @@
     <!-- jvectormap -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/bower_components/jvectormap/jquery-jvectormap.css">
     <!-- Date Picker -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet"
+        href="<?php echo base_url() ?>assets/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
     <!-- Daterange picker -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+    <link rel="stylesheet"
+        href="<?php echo base_url() ?>assets/bower_components/bootstrap-daterangepicker/daterangepicker.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/bower_components/select2/dist/css/select2.min.css">
 
     <script src="<?php echo base_url() ?>assets/bower_components/jquery/dist/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <!-- jQuery UI 1.11.4 -->
     <link rel="icon" href="<?php echo base_url(); ?>assets/dist/img/favicon.png" type="image/gif">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/sweetalert/sweetalert2.min.css">
@@ -40,21 +43,30 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/dropdown/css/dd.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/magnific/magnific-popup.css">
     <script src="<?php echo base_url() ?>assets/plugins/magnific/jquery.magnific-popup.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
 
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
     <style>
-        #notif p {
-            margin-right: -175px;
-        }
+    #notif p {
+        margin-right: -175px;
+    }
 
-        #notif-head {
-            height: 70px;
-            margin-top: 4.5;
-        }
+    #notif-head {
+        height: 70px;
+        margin-top: 4.5;
+    }
+
+    .notif {
+        background-color: transparent;
+    }
+
+    .notif:hover {
+        background-color: #acacac;
+    }
     </style>
     <div class="wrapper">
         <header class="main-header">
@@ -71,12 +83,15 @@
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                     <span class="sr-only">Toggle navigation</span>
                 </a>
+                <?php
+                $numnof = $this->db->query("SELECT * FROM detail_penjualan WHERE status_transaksi='1'");
+                ?>
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-bell"></i>
+                                <i class="fa fa-bell"><?php echo $numnof->num_rows(); ?></i>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="user-header" id="notif-head" style="background-color:white;">
@@ -86,18 +101,18 @@
                                 <li class="user-body" style="width: 100px;">
                                     <div class="row" style="text-align:left; margin-right: -200px;">
                                         <div class="col-md-4" id="notif">
-                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime, cum?</p>
-                                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem veritatis labore omnis, nulla saepe aspernatur. Nulla doloribus amet quidem est culpa. Commodi laudantium consequatur reiciendis earum ab eos, nostrum, quos culpa facere quod, maxime dolores eius ad blanditiis dolore beatae illo quasi. Quibusdam itaque eaque fugit rerum similique dolore aut.</p>
-                                            <p>Lorem ipsum dolor sit amet.</p>
-                                            <p>Lorem ipsum dolor sit amet.</p>
-                                            <p>Lorem ipsum dolor sit amet.</p>
-                                            <p>Lorem ipsum dolor sit amet.</p>
-                                            <p>Lorem ipsum dolor sit amet.</p>
-                                            <p>Lorem ipsum dolor sit amet.</p>
-                                            <p>Lorem ipsum dolor sit amet.</p>
-                                            <p>Lorem ipsum dolor sit amet.</p>
-                                            <p>Lorem ipsum dolor sit amet.</p>
-                                            <p>Lorem ipsum dolor sit amet.</p>
+                                            <?php
+                                            foreach ($numnof->result() as $uq) :
+                                                $idd = $uq->id;
+                                            ?>
+                                            <a href="" class="notif">
+                                                <p><span class="badge bg-info">NEW</span> pembelian
+                                                    baru dengan atas nama
+                                                    <b><?php echo $uq->nama_pelanggan; ?>.</b>
+                                                </p>
+                                            </a>
+                                            <hr />
+                                            <?php endforeach; ?>
                                         </div>
                                     </div>
                                 </li>
@@ -108,14 +123,16 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- <img src="<?php echo base_url('uploads/operator/') . $foto; ?>" class="user-image" alt="User Image"> -->
                                 <i class="fa fa-user"></i>
-                                <span class="hidden-xs">Hi!, <?php echo $this->session->userdata['nama_operator']; ?></span>
+                                <span class="hidden-xs">Hi!,
+                                    <?php echo $this->session->userdata['nama_operator']; ?></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header" style="background-color: #222d32;">
                                     <i id="ikon" class="fa fa-user"></i>
                                     <p>
-                                        <span class="text-uppercase"><?php echo $this->session->userdata['nama_operator']; ?></span>
+                                        <span
+                                            class="text-uppercase"><?php echo $this->session->userdata['nama_operator']; ?></span>
                                         <small><a href="#"><i class="fa fa-circle text-success"></i> Online</a></small>
                                     </p>
                                 </li>
@@ -123,7 +140,8 @@
                                 <li class="user-body">
                                     <div class="row">
                                     </div>
-                                    <a href="<?php echo base_url() ?>index.php/auth/logout" class="btn btn-default btn-flat" style="text-align:center;">Sign out</a>
+                                    <a href="<?php echo base_url() ?>index.php/auth/logout"
+                                        class="btn btn-default btn-flat" style="text-align:center;">Sign out</a>
                                 </li>
                             </ul>
                         </li>
@@ -189,7 +207,8 @@
     <!-- daterangepicker -->
     <script src="<?php echo base_url() ?>assets/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- datepicker -->
-    <script src="<?php echo base_url() ?>assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js">
+    <script
+        src="<?php echo base_url() ?>assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js">
     </script>
     <!-- Bootstrap WYSIHTML5 -->
     <!-- Slimscroll -->
@@ -204,11 +223,11 @@
     <script src="<?php echo base_url() ?>assets/dist/js/demo.js"></script>
     <script src="<?php echo base_url() ?>assets/bower_components/select2/dist/js/select2.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $(".select22").select2({
-                placeholder: "Please Select"
-            });
+    $(document).ready(function() {
+        $(".select22").select2({
+            placeholder: "Please Select"
         });
+    });
     </script>
     <script src="<?php echo base_url() ?>assets/app/js/common.js"></script>
 </body>
